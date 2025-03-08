@@ -1,4 +1,4 @@
-from quart import Quart, request, redirect, render_template, send_from_directory, jsonify
+from quart import Quart, request, redirect, render_template, send_from_directory, jsonify, make_response
 from pathlib import Path
 import minify, requests
 from data import data
@@ -18,17 +18,26 @@ async def index():
 @app.route("/search")
 async def search():
     q = request.args.get("q")
+    b = request.cookies.get("b")
+    if not b: b = "!"
     if not q:
         return redirect("/")
-    if "!" in q:
+    if b in q:
         for bang in data["bangs"]:
-            if q.endswith(f" {bang['bang']}") or q.startswith(bang["bang"]):
-                return redirect(bang["url"].replace("{{{s}}}", q.replace(bang["bang"], "").strip()))
+            if q.endswith(f" {b}{bang["t"]}"):
+                return redirect(bang["u"].replace("{{{s}}}", q.replace(f"{b}{bang['t']}", "").strip()))
         for ai in data["ai"]:
             if q.endswith(f" {ai}") or q.startswith(ai):
                 return redirect(data["ai"][ai][1].replace("{{{s}}}", q.replace(ai, "").strip()))
-        q = q.split("!")[0]
-    return redirect(data["default_engine"]["url"].replace("{{{s}}}", q.strip()))
+        q = q.split(b)[0]
+    return redirect(data["default_engine"]["u"].replace("{{{s}}}", q.strip()))
+
+@app.route("/set-bang")
+async def set_bang():
+    b = request.args.get("b")
+    response = await make_response(redirect("/"))
+    response.set_cookie("b", b, max_age=None, expires=None)
+    return response
 
 @app.route("/complete/search")
 async def complete():

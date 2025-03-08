@@ -55,7 +55,7 @@
         <div class="engineItem" onclick="addToEnd(' {{ engine }}')">
           <span class="engineIcon">{{ engines[engine][1]|safe }}</span>
           <span class="engineName">{{ engines[engine][0] }}</span>
-          <span class="bangHint">{{ engine }}</span>
+          <span class="bangHint"><span class="bangCharacter">!</span>{{ engine }}</span>
         </div>
         {% endfor %}
       </div>
@@ -64,7 +64,7 @@
         <div class="engineItem" onclick="addToEnd(' {{ engine }}')">
           <span class="engineIcon">{{ engines[engine][1]|safe }}</span>
           <span class="engineName">{{ engines[engine][0] }}</span>
-          <span class="bangHint">{{ engine }}</span>
+          <span class="bangHint"><span class="bangCharacter">!</span>{{ engine }}</span>
         </div>
         {% endfor %}
       </div>
