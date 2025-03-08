@@ -1,3 +1,4 @@
+from pathlib import Path
 import json
 
 def searchBangToIndex(searchBang: str):
@@ -8,7 +9,7 @@ def searchBangToIndex(searchBang: str):
 def searchBangToEngineData(searchBang: str):
     return data["bangs"][searchBangToIndex(searchBang)]
 
-with open("static/bangs.json", "r") as f:
+with open(Path("static/bangs.json"), "r") as f:
     bangs = json.load(f)
 
 data = {
