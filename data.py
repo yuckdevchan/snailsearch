@@ -1,6 +1,11 @@
 from pathlib import Path
 import json
 
+if Path("/home/atomic123/snailsearch/data.py").exists():
+    pathPrefix = "/home/atomic123/snailsearch/"
+else:
+    pathPrefix = ""
+
 def searchBangToIndex(searchBang: str):
     for i in range(len(data["bangs"])):
         if data["bangs"][i]["bang"] == searchBang:
@@ -9,7 +14,7 @@ def searchBangToIndex(searchBang: str):
 def searchBangToEngineData(searchBang: str):
     return data["bangs"][searchBangToIndex(searchBang)]
 
-with open(Path("static/bangs.json"), "r") as f:
+with open(Path(f"{pathPrefix}static/bangs.json"), "r") as f:
     bangs = json.load(f)
 
 data = {
