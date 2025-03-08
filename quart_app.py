@@ -1,13 +1,14 @@
 from quart import Quart, request, redirect, render_template, send_from_directory, jsonify
-import random, os, minify, requests
 from pathlib import Path
+import minify, requests
 from data import data
 
+debug = Path("debug").exists()
 minify.minify_files(data)
 
 app = Quart(__name__)
 
-debug = True if Path("debug").exists() else False
+engines = data["engines"]
 
 @app.route("/")
 async def index():
