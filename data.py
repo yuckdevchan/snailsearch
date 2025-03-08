@@ -8,19 +8,21 @@ else:
 
 def searchBangToIndex(searchBang: str):
     for i in range(len(data["bangs"])):
-        if data["bangs"][i]["bang"] == searchBang:
+        if data["bangs"][i]["t"] == searchBang:
             return i
+    return None
 
 def searchBangToEngineData(searchBang: str):
-    return data["bangs"][searchBangToIndex(searchBang)]
+    index = searchBangToIndex(searchBang)
+    if index:
+        return data["bangs"][index]
+    return None
 
-with open(Path(f"{pathPrefix}static/bangs.json"), "r") as f:
+with open(f"{pathPrefix}static/bangs.json", "r") as f:
     bangs = json.load(f)
 
 data = {
-    "tab_name": "snail search",
-    "name": "snail search",
-    "default_engine": "!g",
+    "default_engine": "g",
     "engines": {
         "g": ['Google', '<svg xmlns="http://www.w3.org/2000/svg" width="256" height="262" viewBox="0 0 256 262"><path fill="#4285f4" d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622l38.755 30.023l2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"/><path fill="#34a853" d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055c-34.523 0-63.824-22.773-74.269-54.25l-1.531.13l-40.298 31.187l-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"/><path fill="#fbbc05" d="M56.281 156.37c-2.756-8.123-4.351-16.827-4.351-25.82c0-8.994 1.595-17.697 4.206-25.82l-.073-1.73L15.26 71.312l-1.335.635C5.077 89.644 0 109.517 0 130.55s5.077 40.905 13.925 58.602z"/><path fill="#eb4335" d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0C79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"/></svg>'],
         "w": ['Wikipedia', '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m14.97 18.95l-2.56-6.03c-1.02 1.99-2.14 4.08-3.1 6.03c-.01.01-.47 0-.47 0C7.37 15.5 5.85 12.1 4.37 8.68C4.03 7.84 2.83 6.5 2 6.5v-.45h5.06v.45c-.6 0-1.62.4-1.36 1.05c.72 1.54 3.24 7.51 3.93 9.03c.47-.94 1.8-3.42 2.37-4.47c-.45-.88-1.87-4.18-2.29-5c-.32-.54-1.13-.61-1.75-.61c0-.15.01-.25 0-.44l4.46.01v.4c-.61.03-1.18.24-.92.82c.6 1.24.95 2.13 1.5 3.28c.17-.34 1.07-2.19 1.5-3.16c.26-.65-.13-.91-1.21-.91c.01-.12.01-.33.01-.43c1.39-.01 3.48-.01 3.85-.02v.42c-.71.03-1.44.41-1.82.99L13.5 11.3c.18.51 1.96 4.46 2.15 4.9l3.85-8.83c-.3-.72-1.16-.87-1.5-.87v-.45l4 .03v.42c-.88 0-1.43.5-1.75 1.25c-.8 1.79-3.25 7.49-4.85 11.2z"/></svg>'],
@@ -47,9 +49,6 @@ data = {
 }
 
 data["default_engine"] = searchBangToEngineData(data["default_engine"])
-
-for ai in data["ai"]:
-    data["ai"][ai].append(searchBangToEngineData(ai)["title"])
 
 engines_items = list(data["engines"].items())
 mid_point = (len(engines_items) + 1) // 2
