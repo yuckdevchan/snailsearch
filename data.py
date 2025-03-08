@@ -18,6 +18,7 @@ with open(Path(f"{pathPrefix}static/bangs.json"), "r") as f:
     bangs = json.load(f)
 
 data = {
+    "tab_name": "snail search",
     "name": "snail search",
     "default_engine": "!g",
     "engines": {
