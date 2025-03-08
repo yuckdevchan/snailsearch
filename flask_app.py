@@ -24,7 +24,7 @@ def search():
         return redirect("/")
     if b in q:
         for bang in data["bangs"]:
-            if q.endswith(f" {b}{bang["t"]}"):
+            if q.endswith(f" {b}{bang['t']}"):
                 return redirect(bang["u"].replace("{{{s}}}", q.replace(f"{b}{bang['t']}", "").strip()))
         for ai in data["ai"]:
             if q.endswith(f" {ai}") or q.startswith(ai):
