@@ -383,6 +383,7 @@ aiDropdownButton.addEventListener("click", function() {
 function addToEnd(text) {
   var input = document.getElementById("searchBox");
   var inputEmpty = input.value.length === 0;
+  text = " " + bangCharacter + text;
   if (!input.value.endsWith(text)) {
     input.value += text;
     input.selectionStart = input.selectionEnd = input.value.length - text.length;

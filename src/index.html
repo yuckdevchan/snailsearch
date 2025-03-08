@@ -52,7 +52,7 @@
     <div class="engineList">
       <div class="left">
         {% for engine in engines_1 %}
-        <div class="engineItem" onclick="addToEnd(' {{ engine }}')">
+        <div class="engineItem" onclick="addToEnd('{{ engine }}')">
           <span class="engineIcon">{{ engines[engine][1]|safe }}</span>
           <span class="engineName">{{ engines[engine][0] }}</span>
           <span class="bangHint"><span class="bangCharacter">!</span>{{ engine }}</span>
@@ -61,7 +61,7 @@
       </div>
       <div class="right">
         {% for engine in engines_2 %}
-        <div class="engineItem" onclick="addToEnd(' {{ engine }}')">
+        <div class="engineItem" onclick="addToEnd('{{ engine }}')">
           <span class="engineIcon">{{ engines[engine][1]|safe }}</span>
           <span class="engineName">{{ engines[engine][0] }}</span>
           <span class="bangHint"><span class="bangCharacter">!</span>{{ engine }}</span>
@@ -73,7 +73,7 @@
   </div>
   <div id="aiDropdown" class="hidden">
     {% for aiSite in ai %}
-      <div class="engineItem" onclick="addToEnd(' {{ aiSite }}')">
+      <div class="engineItem" onclick="addToEnd('{{ aiSite }}')">
         <span class="engineIcon">{{ ai[aiSite][1] }}</span>
         <span class="engineName">{{ ai[aiSite][0] }}</span>
         <span class="bangHint">{{ aiSite }}</span>
