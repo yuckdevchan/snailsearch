@@ -1,0 +1,487 @@
+@font-face {
+    font-family: "Poppins";
+    src: url("/static/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Poppins";
+    font-weight: bold;
+    src: url("/static/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kalam";
+    src: url("/static/fonts/Kalam/Kalam-Regular.ttf") format("truetype");
+    font-style: normal;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+body * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: rgb(26, 26, 26);
+    line-height: 1em;
+    margin-bottom: 0.1em;
+}
+
+::selection {
+    background-color: rgb(44, 108, 255);
+    color: white;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.search-container {
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40em;
+}
+
+.search-container h1 {
+    font-size: 4em;
+}
+
+.search-box {
+    box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4);
+    border: none;
+    border-top-left-radius: 1.5em;
+    border-top-right-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+    border-bottom-left-radius: 1.5em;
+    width: 28em;
+    max-width: 90vw;
+    margin: 0;
+    font-size: 1.2em;
+    margin-top: 1.25em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2em;
+    transition: background-color 0.2s, width 0.2s, opacity 0.2s;
+}
+
+.search-box .top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 3em;
+    gap: 0.3em;
+}
+
+.search-box .bottom {
+    height: 0;
+}
+
+#searchEngineIcon, #clearButton {
+    height: 3em;
+    border: 0.05em solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, border 0.2s;
+}
+
+#searchEngineIcon {
+    padding-left: 0.75em;
+    padding-right: 0.5em;
+    border-top-left-radius: 2em;
+    border-bottom-left-radius: 2em;
+}
+
+#clearButton {
+    display: none;
+    padding-left: 0.5em;
+    padding-right: 0.75em;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+}
+
+#searchEngineIcon:hover, #clearButton:hover {
+    background-color: rgb(214, 214, 214);
+    border: 0.05em solid grey;
+    transition: background-color 0.2s, border 0.2s;
+}
+
+#searchEngineIcon:active, #clearButton:active {
+    background-color: rgb(200, 200, 200);
+    border: 0.05em solid rgb(44, 108, 255);
+    transition: background-color 0.2s;
+}
+
+#searchEngineIcon svg, #clearButton svg {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+#engineDropdown, #aiDropdown {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4);
+    border-radius: 0.75em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: white;
+}
+
+.engineList {
+    display: flex;
+    flex-direction: row;
+}
+
+.engineItem {
+    text-align: start;
+    width: 100%;
+    padding: 0.5em;
+    padding-left: 0.75em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1em;
+}
+
+.engineIcon svg {
+    width: 1.5em;
+    height: 1.5em;
+}
+
+#engineDropdown .engineName {
+    width: 8em;
+}
+
+#aiDropdown .engineName {
+    width: 5em;
+}
+
+.bangHint {
+    color: rgb(79, 79, 79);
+}
+
+.engineItem:hover {
+    transition: background-color 0.2s;
+}
+
+.engineList .left .engineItem:hover {
+    background: linear-gradient(to right, rgb(230, 230, 230) 80%, transparent);
+}
+
+.engineList .right .engineItem:hover {
+    background: linear-gradient(to left, rgb(230, 230, 230) 80%, transparent);
+}
+
+#aiDropdown .engineItem:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.moreBangsText {
+    font-weight: 500;
+    font-size: 1.2em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.search-box input {
+    font-family: "Poppins", sans-serif;
+    border: none;
+    width: 85%;
+    height: 3em;
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    caret-color: rgb(44, 108, 255);
+    background-color: transparent;
+    word-wrap: break-word;
+    transition: color 0.2s, width 0.2s;
+}
+
+.search-box .bottom {
+    display: none;
+}
+
+#suggestions {
+    background-color: white;
+    border-bottom-left-radius: 1.5em;
+    border-bottom-right-radius: 1.5em;
+}
+
+.suggestion {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    padding-right: 0.85em;
+}
+
+.suggestion .searchPart {
+    padding: 0.3em;
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    width: 100%;
+    height: 100%;
+}
+
+.suggestion .searchPart:hover {
+    background: linear-gradient(to right, rgb(230, 230, 230) 90%, transparent);
+}
+
+.suggestionClipboardIcon, .suggestionInputIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5em;
+    width: 2em;
+    height: 2em;
+    padding: 0.25em;
+}
+
+.suggestionClipboardIcon:hover, .suggestionInputIcon:hover {
+    background-color: rgb(230, 230, 230);
+}
+
+.suggestionIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.5em;
+}
+
+.search-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.25em;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.search-button {
+    font-family: "Poppins", sans-serif;
+    border: 0.05em solid rgb(233, 233, 233);
+    border-radius: 0.75em;
+    font-size: 1.05em;
+    height: 2.5em;
+    padding: 0.75em;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+    gap: 0.05em;
+    background-color: rgb(233, 233, 233);
+    transition: background-color 0.15s, color 0.2s, border 0.2s;
+}
+
+.search-button svg {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.search-button:hover {
+    border: 0.05em solid grey;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.15s, border 0.2s;
+}
+
+.search-button:active {
+    border: 0.05em solid rgb(44, 108, 255);
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.15s;
+}
+
+.search-button:focus {
+    outline: none;
+}
+
+#promptButton {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-right: 0;
+}
+
+#aiDropdownButton {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+    width: 2.5em;
+}
+
+.links {
+    position: fixed;
+    bottom: 0.25em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.links a {
+    color: black;
+}
+
+.iconButton {
+    border: 0.05em solid transparent;
+    border-radius: 1em;
+    padding: 0.75em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25em;
+    transition: background-color 0.2s, border 0.2s;
+}
+
+.buttonsBottomLeft {
+    position: fixed;
+    bottom: 0.3em;
+    left: 0.3em;
+    display: flex;
+    flex-direction: row;
+    gap: 0.2em;
+}
+
+.iconButton svg {
+    width: 1.75em;
+    height: 1.75em;
+}
+
+.iconButton:hover {
+    border: 0.05em solid grey;
+    background-color: rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s, border 0.2s;
+}
+
+.iconButton:active {
+    border: 0.05em solid rgb(44, 108, 255);
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, border 0.2s;
+}
+
+.g .gBlue {
+    color: #4285F4;
+}
+
+.g .gRed {
+    color: #EA4335;
+}
+
+.g .gGreen {
+    color: #34A853;
+}
+
+.g .gYellow {
+    color: #FBBC04;
+}
+
+.dark-mode {
+    background-color: rgb(20, 20, 20);
+    color: white;
+}
+
+.dark-mode h1 {
+    color: white;
+}
+
+.dark-mode .search-box {
+    background-color: rgb(38, 38, 38);
+    color: white;
+}
+
+.dark-mode #searchEngineIcon:hover, .dark-mode #clearButton:hover {
+    background-color: rgb(62, 62, 62);
+}
+
+.dark-mode #engineDropdown, .dark-mode #aiDropdown {
+    background-color: rgb(38, 38, 38);
+    color: white;
+}
+
+.dark-mode .engineList .left .engineItem:hover {
+    background: linear-gradient(to right, rgb(62, 62, 62) 80%, transparent);
+}
+
+.dark-mode .engineList .right .engineItem:hover {
+    background: linear-gradient(to left, rgb(62, 62, 62) 80%, transparent);
+}
+
+.dark-mode #aiDropdown .engineItem:hover {
+    background-color: rgb(62, 62, 62);
+}
+
+.dark-mode .bangHint {
+    color: rgb(192, 192, 192);
+}
+
+.dark-mode .search-box input {
+    color: white;
+}
+
+.dark-mode #suggestions {
+    background-color: rgb(38, 38, 38);
+}
+
+.dark-mode .suggestion .searchPart:hover {
+    background: linear-gradient(to right, rgb(62, 62, 62) 90%, transparent);
+}
+
+.dark-mode .suggestionClipboardIcon:hover, .dark-mode .suggestionInputIcon:hover {
+    background-color: rgb(62, 62, 62);
+}
+
+.dark-mode ::selection {
+    color: rgb(17, 17, 17);
+}
+
+.dark-mode .search-button {
+    border-color: rgb(32, 32, 32);
+    background-color: rgb(32, 32, 32);
+    color: white;
+}
+
+.dark-mode .search-button:hover {
+    border-color: grey;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-mode .search-button:active {
+    border-color: rgb(44, 108, 255);
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark-mode .links a {
+    color: rgb(222, 222, 222);
+}
+
+.dark-mode #themeToggleButton {
+    color: white;
+}
+
+.dark-mode #themeToggleButton:hover {
+    background-color: rgba(255, 255, 255, 0.041);
+}
+
+.dark-mode #themeToggleButton svg path {
+    stroke: rgb(209, 209, 209);
+}

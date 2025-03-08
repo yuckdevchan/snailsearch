@@ -1,2 +1,2 @@
-# snailsearch
+# Snail Search
 good search interface
