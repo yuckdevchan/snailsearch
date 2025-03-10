@@ -48,17 +48,12 @@ h1 {
 }
 
 .search-container {
-    justify-content: center;
-    text-align: center;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40em;
+    width: 100%;
+    margin-top: 30vh;
 }
 
 .search-container h1 {
@@ -68,10 +63,7 @@ h1 {
 .search-box {
     box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4);
     border: none;
-    border-top-left-radius: 1.5em;
-    border-top-right-radius: 1.5em;
-    border-bottom-right-radius: 1.5em;
-    border-bottom-left-radius: 1.5em;
+    border-radius: 1.5em;
     width: 28em;
     max-width: 90vw;
     margin: 0;
@@ -89,10 +81,6 @@ h1 {
     align-items: center;
     height: 3em;
     gap: 0.3em;
-}
-
-.search-box .bottom {
-    height: 0;
 }
 
 #searchEngineIcon, #clearButton {
@@ -226,8 +214,6 @@ h1 {
 
 #suggestions {
     background-color: white;
-    border-bottom-left-radius: 1.5em;
-    border-bottom-right-radius: 1.5em;
 }
 
 .suggestion {

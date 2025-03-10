@@ -69,14 +69,14 @@
         {% endfor %}
       </div>
     </div>
-    <p class="moreBangsText">+ <span style="font-family: Kalam;">{{ bangs|length - engines|length }}</span> more bangs, and counting.</p>
+    <p class="moreBangsText">+ <span style="font-family: Kalam;">{{ "{:,}".format(bangs|length - engines|length - engines_2|length) }}</span> more bangs, and counting.</p>
   </div>
   <div id="aiDropdown" class="hidden">
     {% for aiSite in ai %}
       <div class="engineItem" onclick="addToEnd('{{ aiSite }}')">
         <span class="engineIcon">{{ ai[aiSite][1] }}</span>
         <span class="engineName">{{ ai[aiSite][0] }}</span>
-        <span class="bangHint">{{ aiSite }}</span>
+        <span class="bangHint"><span class="bangCharacter">!</span>{{ aiSite }}</span>
       </div>
     {% endfor %}
   </div>

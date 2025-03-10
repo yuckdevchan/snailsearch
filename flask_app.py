@@ -48,7 +48,7 @@ def complete():
     return suggestions.json()
 
 @app.route("/opensearch.xml")
-def opensearch(): return send_from_directory(".", "opensearchlocal.xml")
+def opensearch(): return send_from_directory(".", "opensearch.xml")
 
 if __name__ == "__main__":
     port = 4664
