@@ -2,7 +2,7 @@ from pathlib import Path
 
 debug = Path("debug").exists()
 
-port = 4665
+port = 4664
 
 if Path("useFlask").exists():
     from flask_app import app
