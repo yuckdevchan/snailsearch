@@ -38,27 +38,39 @@ async def search():
     else:
         return redirect(data["default_engine"]["u"].replace("{{{s}}}", q.strip()))
 
-@app.route("/set-bang")
+@app.route("/api/setBangChar")
 async def set_bang():
     b = request.args.get("q")
     response = await make_response(redirect("/"))
     response.set_cookie("b", b, max_age=60*60*24*365*100, expires=None)
     return response
 
-@app.route("/set-default-engine")
+@app.route("/api/unsetBangChar")
+
+@app.route("/api/setDefaultEngine")
 async def set_default_engine():
     e = request.args.get("q")
     response = await make_response(redirect("/"))
     response.set_cookie("e", e, max_age=60*60*24*365*100, expires=None)
     return response
 
-@app.route("/complete/search")
-async def complete():
+@app.route("/api/unsetDefaultEngine")
+async def api_unsetDefaultEngine():
+    response = await make_response(redirect("/"))
+    response.delete_cookie("e")
+    return response
+
+@app.route("/api/complete/search")
+async def api_completeSearch():
     q = request.args.get("q")
     if not q:
         return redirect("/")
     suggestions = requests.get(f"https://suggestqueries.google.com/complete/search?output=firefox&q={q}", verify=False)
     return suggestions.json()
+
+@app.route("/complete/search")
+async def completeSearch():
+    return api_completeSearch()
 
 @app.route("/opensearch.xml")
 async def opensearch(): return await send_from_directory(".", "opensearchlocal.xml")

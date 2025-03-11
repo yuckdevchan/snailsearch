@@ -66516,7 +66516,7 @@
   },
   {
     "c": "Research",
-    "d": "minecraft.gamepedia.com",
+    "d": "minecraft.wiki",
     "r": 134,
     "s": "Official Minecraft Wiki",
     "sc": "Reference (fun)",
@@ -66543,12 +66543,12 @@
   },
   {
     "c": "Entertainment",
-    "d": "minecraft.gamepedia.com",
+    "d": "minecraft.wiki",
     "r": 140,
     "s": "The Official Minecraft Wiki",
     "sc": "Games (Minecraft)",
     "t": "mcw",
-    "u": "http://minecraft.gamepedia.com/index.php?search={{{s}}}"
+    "u": "http://minecraft.wiki/index.php?search={{{s}}}"
   },
   {
     "c": "Online Services",

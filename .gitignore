@@ -173,3 +173,4 @@ cython_debug/
 /debug
 /useFlask
 /scratch.py
+/static/index.min.html
