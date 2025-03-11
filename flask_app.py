@@ -38,20 +38,39 @@ def search():
     else:
         return redirect(data["default_engine"]["u"].replace("{{{s}}}", q.strip()))
 
-@app.route("/set-bang")
+@app.route("/api/setBangChar")
 def set_bang():
-    b = request.args.get("b")
+    b = request.args.get("q")
     response = make_response(redirect("/"))
     response.set_cookie("b", b, max_age=60*60*24*365*100, expires=None)
     return response
 
-@app.route("/complete/search")
-def complete():
+@app.route("/api/unsetBangChar")
+
+@app.route("/api/setDefaultEngine")
+def set_default_engine():
+    e = request.args.get("q")
+    response = make_response(redirect("/"))
+    response.set_cookie("e", e, max_age=60*60*24*365*100, expires=None)
+    return response
+
+@app.route("/api/unsetDefaultEngine")
+def api_unsetDefaultEngine():
+    response = make_response(redirect("/"))
+    response.delete_cookie("e")
+    return response
+
+@app.route("/api/complete/search")
+def api_completeSearch():
     q = request.args.get("q")
     if not q:
         return redirect("/")
     suggestions = requests.get(f"https://suggestqueries.google.com/complete/search?output=firefox&q={q}", verify=False)
     return suggestions.json()
+
+@app.route("/complete/search")
+def completeSearch():
+    return api_completeSearch()
 
 @app.route("/opensearch.xml")
 def opensearch(): return send_from_directory(".", "opensearch.xml")

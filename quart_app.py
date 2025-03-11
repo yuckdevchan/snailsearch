@@ -70,7 +70,7 @@ async def api_completeSearch():
 
 @app.route("/complete/search")
 async def completeSearch():
-    return api_completeSearch()
+    return await api_completeSearch()
 
 @app.route("/opensearch.xml")
 async def opensearch(): return await send_from_directory(".", "opensearchlocal.xml")
