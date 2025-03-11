@@ -22,7 +22,7 @@ with open(f"{pathPrefix}static/bangs.json", "r") as f:
     bangs = json.load(f)
 
 data = {
-    "tab_name": "snail search",
+    "tab_name": "Snail Search",
     "name": "snail search",
     "default_engine": "g",
     "engines": {
