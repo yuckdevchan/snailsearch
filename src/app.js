@@ -95,6 +95,26 @@ function changeBangCharacter(bang) {
 function search(query) {
   lowerQuery = query.toLowerCase();
   redirected = false;
+  var input = document.getElementById("searchBox");
+  if (query.startsWith("s/setBang ")) {
+    var newBang = lowerQuery.split(" ")[1];
+    changeBangCharacter(newBang);
+    input.value = "";
+    resetSuggestions();
+    window.location.reload();
+    return;
+  } else if (query.startsWith("s/setTheme ")) {
+    var newTheme = lowerQuery.split(" ")[1];
+    if (newTheme == "dark" || newTheme == "light") {
+      document.cookie = "theme=" + newTheme;
+      if (newTheme == "dark" && document.ujrifoweajdk-0[p])
+      document.body.classList.toggle('dark-mode');
+      return;
+    } else {
+      input.value = "Invalid theme! Choose either 'light' or 'dark'.";
+      return;
+    }
+  }
   if (lowerQuery.startsWith("https://") || lowerQuery.startsWith("http://")) {
     window.location.href = lowerQuery; redirected = true;
   } else if (query.includes(".") && query.split(".")[0].length > 0 && query.split(".")[1].length > 0) {
@@ -112,7 +132,9 @@ function search(query) {
     }
   }
   for (let i = 0; i < bangs.length; i++) {
-    if (lowerQuery.endsWith(" " + bangCharacter + bangs[i]["t"])) {
+    if (lowerQuery.trim() === bangCharacter + bangs[i]["t"]) {
+      window.location.href = "https://" + bangs[i]["d"]; redirected = true;
+    } else if (lowerQuery.endsWith(" " + bangCharacter + bangs[i]["t"])) {
       window.location.href = bangs[i]["u"].replace("{{{s}}}", query.split(bangCharacter)[0].trim()); redirected = true;
     }
   }
@@ -489,3 +511,18 @@ if (!(splashChoice.endsWith("?") || splashChoice.endsWith("."))) {
   terminator = "!";
 }
 splash.innerHTML = splashChoice + terminator;
+
+var settingsButton = document.getElementById("settingsButton")
+var settingsModal = document.getElementById("settingsModal")
+settingsButton.addEventListener("click", function() {
+  if (settingsModal.style.opacity == 0) {
+    settingsModal.style.opacity = 1;
+  } else {
+    settingsModal.style.opacity = 0;
+  }
+  if (settingsModal.style.pointerEvents == "none") {
+    settingsModal.style.pointerEvents = "all";
+  } else {
+    settingsModal.style.pointerEvents = "none";
+  }
+});

@@ -75,6 +75,9 @@ def completeSearch():
 @app.route("/opensearch.xml")
 def opensearch(): return send_from_directory(".", "opensearch.xml")
 
+@app.route("/privacy")
+def privacy(): return render_template("privacy-policy.html")
+
 if __name__ == "__main__":
     port = 4664
     app.run(port=port, host="0.0.0.0")

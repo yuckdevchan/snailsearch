@@ -75,6 +75,9 @@ async def completeSearch():
 @app.route("/opensearch.xml")
 async def opensearch(): return await send_from_directory(".", "opensearchlocal.xml")
 
+@app.route("/privacy")
+async def privacy(): return await render_template("privacy-policy.html")
+
 if __name__ == "__main__":
     port = 4664
     if debug:

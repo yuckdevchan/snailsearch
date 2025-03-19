@@ -37,7 +37,7 @@ h1 {
 }
 
 ::selection {
-    background-color: rgb(44, 108, 255);
+    background-color: rgb(19, 90, 254);
     color: white;
 }
 
@@ -63,7 +63,7 @@ h1 {
 .search-box {
     box-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4);
     border: none;
-    border-radius: 1.5em;
+    border-radius: 1.5em !important;
     width: 28em;
     max-width: 90vw;
     margin: 0;
@@ -214,6 +214,8 @@ h1 {
 
 #suggestions {
     background-color: white;
+    border-radius: 1.5em;
+    margin-bottom: 1em;
 }
 
 .suggestion {
@@ -381,6 +383,28 @@ h1 {
     color: #FBBC04;
 }
 
+#settingsModal {
+    position: fixed;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.15s;
+    background-color: rgb(239, 239, 239);
+    padding: 2em;
+    border-radius: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    top: 32.5%;
+    left: 1em;
+}
+
+#settingsModal input {
+    border: none;
+    padding: 1em;
+    border-radius: 0.5em;
+    font-family: inherit;
+}
+
 .dark-mode {
     background-color: rgb(20, 20, 20);
     color: white;
@@ -436,10 +460,6 @@ h1 {
     background-color: rgb(62, 62, 62);
 }
 
-.dark-mode ::selection {
-    color: rgb(17, 17, 17);
-}
-
 .dark-mode .search-button {
     border-color: rgb(32, 32, 32);
     background-color: rgb(32, 32, 32);
@@ -470,4 +490,13 @@ h1 {
 
 .dark-mode #themeToggleButton svg path {
     stroke: rgb(209, 209, 209);
+}
+
+.dark-mode #settingsModal {
+    background-color: rgb(43, 43, 43);
+}
+
+.dark-mode #settingsModal input {
+    background-color: rgb(32, 32, 32);
+    color: white;
 }
