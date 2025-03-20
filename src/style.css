@@ -321,7 +321,7 @@ h1 {
 
 .links {
     position: fixed;
-    bottom: 0.25em;
+    bottom: 0.45em;
     left: 50%;
     transform: translateX(-50%);
 }

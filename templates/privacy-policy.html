@@ -3,18 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy</title>
+  <link rel="icon" href="/static/favicon.png" type="image/png">
+  <title>Snail Search Privacy Policy</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      max-width: 800px;
       margin: 0 auto;
       padding: 20px;
       color: #333;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
+
+    .dark-mode {
+      background-color: rgb(20, 20, 20);
+      color: rgb(207, 207, 207);
+    }
+    
+    #pageContent {
+      max-width: 95%;
+      width: 45rem;
+    }
+
     h1, h2 {
       color: #2c3e50;
+    }
+
+    .dark-mode h1, .dark-mode h2 {
+      color: white;
+    }
+
+    a {
+      color: rgb(0, 115, 255);
     }
 
     h2 {
@@ -35,52 +58,146 @@
       background-color: #e6e6e6;
       transition: background-color 0.2s ease;
     }
+
+    .iconButton {
+      border: 0.05em solid transparent;
+      border-radius: 1em;
+      padding: 0.75em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25em;
+      transition: background-color 0.2s, border 0.2s;
+    }
+  
+    .buttonsBottomLeft {
+      position: fixed;
+      bottom: 0.3rem;
+      left: 0.3rem;
+      display: flex;
+      flex-direction: row;
+      gap: 0.2rem;
+    }
+
+    @media only screen and (max-width: 860px) {
+      .buttonsBottomLeft {
+        display: none;
+      }
+    }
+    
+    .iconButton svg {
+      width: 1.75em;
+      height: 1.75em;
+    }
+    
+    .iconButton:hover {
+      border: 0.05em solid grey;
+      background-color: rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s, border 0.2s;
+    }
+    
+    .iconButton:active {
+      border: 0.05em solid rgb(44, 108, 255);
+      background-color: rgba(0, 0, 0, 0.2);
+      transition: background-color 0.2s, border 0.2s;
+    }
   </style>
 </head>
 <body>
+  <div id="pageContent">
+    <h1>Privacy Policy</h1>
+    <p><strong>Effective Date:</strong> 19 March, 2025</p>
 
-  <h1>Privacy Policy</h1>
-  <p><strong>Effective Date:</strong> 19 March, 2025</p>
+    <h2>1. Introduction</h2>
+    <p>We value your privacy and are committed to being transparent about the limited data we collect. This Privacy Policy explains what information we collect when you visit our website, how we use it, and your choices regarding that information.</p>
 
-  <h2>1. Introduction</h2>
-  <p>We value your privacy and are committed to being transparent about the limited data we collect. This Privacy Policy explains what information we collect when you visit our website, how we use it, and your choices regarding that information.</p>
+    <h2>2. Information We Collect</h2>
+    <p>We do <strong>not</strong> collect any personally identifiable information (PII) or use cookies that track you across websites. The only information we store is related to your website experience and preferences.</p>
 
-  <h2>2. Information We Collect</h2>
-  <p>We do <strong>not</strong> collect any personally identifiable information (PII) or use cookies that track you across websites. The only information we store is related to your website experience and preferences.</p>
+    <h2>3. Cookies and Local Storage</h2>
+    <p>We use cookies or local storage <strong>only</strong> to remember your preferences, such as:</p>
+    <ul>
+      <li>Theme settings (light/dark mode)</li>
+      <li>Language preferences</li>
+      <li>Other site appearance or functionality settings</li>
+    </ul>
+    <p>These cookies <strong>do not</strong> contain or store unique identifiers or any personal information.</p>
 
-  <h2>3. Cookies and Local Storage</h2>
-  <p>We use cookies or local storage <strong>only</strong> to remember your preferences, such as:</p>
-  <ul>
-    <li>Theme settings (light/dark mode)</li>
-    <li>Language preferences</li>
-    <li>Other site appearance or functionality settings</li>
-  </ul>
-  <p>These cookies <strong>do not</strong> contain or store unique identifiers or any personal information.</p>
+    <h2>4. How We Use the Information</h2>
+    <p>The information stored in your browser is used solely to improve your experience on our website. For example, remembering your preferred theme so you don’t have to reset it every time you visit.</p>
+    <p>We <strong>do not</strong>:</p>
+    <ul>
+      <li>Track your activity across other websites</li>
+      <li>Sell or share your information with third parties</li>
+      <li>Use analytics services that collect personal data</li>
+    </ul>
 
-  <h2>4. How We Use the Information</h2>
-  <p>The information stored in your browser is used solely to improve your experience on our website. For example, remembering your preferred theme so you don’t have to reset it every time you visit.</p>
-  <p>We <strong>do not</strong>:</p>
-  <ul>
-    <li>Track your activity across other websites</li>
-    <li>Sell or share your information with third parties</li>
-    <li>Use analytics services that collect personal data</li>
-  </ul>
+    <h2>5. Third-Party Services</h2>
+    <p>Our website does not use third-party cookies or embed third-party services that track or collect your personal data.</p>
 
-  <h2>5. Third-Party Services</h2>
-  <p>Our website does not use third-party cookies or embed third-party services that track or collect your personal data.</p>
+    <h2>6. Your Choices</h2>
+    <p>You can manage or clear cookies and local storage data through your browser settings. However, please note that clearing these may reset your preferences on our site.</p>
 
-  <h2>6. Your Choices</h2>
-  <p>You can manage or clear cookies and local storage data through your browser settings. However, please note that clearing these may reset your preferences on our site.</p>
+    <h2>7. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy occasionally. If we make any significant changes, we’ll update the effective date at the top of this page.</p>
 
-  <h2>7. Changes to This Policy</h2>
-  <p>We may update this Privacy Policy occasionally. If we make any significant changes, we’ll update the effective date at the top of this page.</p>
-
-  <h2>8. Contact Us</h2>
-  <p>If you have any questions or concerns about this Privacy Policy, feel free to reach out by leaving an issue on the GitHub repository: <a href="https://github.com/yuckdevchan/snailsearch/issues/new">https://github.com/yuckdevchan/snailsearch/issues/new</a>.</p>
-
+    <h2>8. Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy, feel free to reach out by leaving an issue on the GitHub repository: <a href="https://github.com/yuckdevchan/snailsearch/issues/new">https://github.com/yuckdevchan/snailsearch/issues/new</a>.</p>
+  </div>
+  <div class="buttonsBottomLeft">
+    <div id="themeToggleButton" class="iconButton">
+    <div id="githubButton" class="iconButton" onclick="window.open('https://github.com/yuckdevchan/thebigbang', '_blank')">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none"><g clip-path="url(#akarIconsGithubFill0)"><path fill="currentColor" fill-rule="evenodd" d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385c.6.105.825-.255.825-.57c0-.285-.015-1.23-.015-2.235c-3.015.555-3.795-.735-4.035-1.41c-.135-.345-.72-1.41-1.23-1.695c-.42-.225-1.02-.78-.015-.795c.945-.015 1.62.87 1.845 1.23c1.08 1.815 2.805 1.305 3.495.99c.105-.78.42-1.305.765-1.605c-2.67-.3-5.46-1.335-5.46-5.925c0-1.305.465-2.385 1.23-3.225c-.12-.3-.54-1.53.12-3.18c0 0 1.005-.315 3.3 1.23c.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23c.66 1.65.24 2.88.12 3.18c.765.84 1.23 1.905 1.23 3.225c0 4.605-2.805 5.625-5.475 5.925c.435.375.81 1.095.81 2.22c0 1.605-.015 2.895-.015 3.3c0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12" clip-rule="evenodd"/></g><defs><clipPath id="akarIconsGithubFill0"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></g></svg>
+    </div>
+  </div>
 </body>
 </html>
 <script>
+  var sunIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4V2m0 18v2M6.414 6.414L5 5m12.728 12.728l1.414 1.414M4 12H2m18 0h2m-4.271-5.586L19.143 5M6.415 17.728L5 19.142M12 17a5 5 0 1 1 0-10a5 5 0 0 1 0 10"/></svg>';
+  var moonIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 6a9 9 0 0 0 9 9c.91 0 1.787-.134 2.614-.385A9 9 0 0 1 12 21A9 9 0 0 1 9.386 3.386A9 9 0 0 0 9 6"/></svg>'
+  var themeToggleButton = document.getElementById("themeToggleButton");
+  
+  if (document.cookie.includes("theme=dark") || document.cookie.includes("theme=light")) {
+    if (document.cookie.includes("theme=dark")) {
+      document.body.classList.add('dark-mode');
+      themeToggleButton.innerHTML = sunIcon;
+    } else {
+      themeToggleButton.innerHTML = moonIcon;
+    }
+  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.body.classList.add('dark-mode');
+    themeToggleButton.innerHTML = sunIcon;
+  } else {
+    themeToggleButton.innerHTML = moonIcon;
+  }
+  
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    if (document.cookie.includes("theme=dark")) {
+      return;
+    } else if (document.cookie.includes("theme=light")) {
+      return;
+    }
+    if (e.matches) {
+      document.body.classList.add('dark-mode');
+      themeToggleButton.innerHTML = sunIcon;
+    } else {
+      document.body.classList.remove('dark-mode');
+      themeToggleButton.innerHTML = moonIcon;
+    }
+  });
+  
+  var themeTogglebutton = document.getElementById("themeToggleButton");
+  themeTogglebutton.addEventListener("click", function() {
+    document.body.classList.toggle('dark-mode');
+    if (document.body.classList.contains('dark-mode')) {
+      themeToggleButton.innerHTML = sunIcon;
+      document.cookie = "theme=dark";
+    } else {
+      themeToggleButton.innerHTML = moonIcon;
+      document.cookie = "theme=light";
+    }
+  });
+
   document.addEventListener("DOMContentLoaded", function () {
     const headings = document.querySelectorAll('h2');
     headings.forEach((heading, index) => {
