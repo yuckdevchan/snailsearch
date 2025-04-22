@@ -21,7 +21,7 @@ def searchBangToEngineData(searchBang: str):
 with open(f"{pathPrefix}static/bangs.json", "r") as f:
     bangs = json.load(f)
 
-lang = "toki"
+lang = "english"
 
 match lang:
     case "english":
@@ -30,6 +30,7 @@ match lang:
         search_box_text = "Search the web..."
         search_button_text = "Search"
         prompt_button_text = "Prompt"
+        privacy_policy_text = "Privacy Policy"
     case "toki":
         tab_name = "tenpo alasa"
         name = "tenpo alasa"
